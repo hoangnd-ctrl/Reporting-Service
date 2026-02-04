@@ -4,7 +4,7 @@ spring:
     name: reporting-service
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/reporting_db
+    url: jdbc:postgresql://localhost:5433/reporting_db?options=-c%20timezone=Asia/Ho_Chi_Minh
     username: postgres
     password: 123456
     driver-class-name: org.postgresql.Driver

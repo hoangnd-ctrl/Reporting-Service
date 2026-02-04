@@ -54,8 +54,8 @@ public class FeedbackController {
      * Get all feedback for a seller
      * GET /api/v1/feedback/seller/{sellerId}
      */
-    @GetMapping("/seller/{sellerId}")
-    public ResponseEntity<List<FeedbackResponse>> getFeedbackBySeller(@PathVariable UUID sellerId) {
+    @GetMapping("/seller")
+    public ResponseEntity<List<FeedbackResponse>> getFeedbackBySeller( @RequestHeader("X-User-Id") UUID sellerId) {
         List<FeedbackResponse> responses = feedbackService.getFeedbackBySeller(sellerId);
         return ResponseEntity.ok(responses);
     }
@@ -87,7 +87,7 @@ public class FeedbackController {
     @PutMapping("/{id}/approve")
     public ResponseEntity<FeedbackResponse> approveFeedback(
             @PathVariable UUID id,
-            @RequestParam UUID staffId,
+            @RequestHeader("X-User-Id") UUID staffId,
             @RequestParam(required = false) String notes) throws ResourceNotFoundException {
         FeedbackResponse response = feedbackService.approveFeedback(id, staffId, notes);
         return ResponseEntity.ok(response);
@@ -100,7 +100,7 @@ public class FeedbackController {
     @PutMapping("/{id}/reject")
     public ResponseEntity<FeedbackResponse> rejectFeedback(
             @PathVariable UUID id,
-            @RequestParam UUID staffId,
+            @RequestHeader("X-User-Id") UUID staffId,
             @RequestParam(required = false) String notes) throws ResourceNotFoundException {
         FeedbackResponse response = feedbackService.rejectFeedback(id, staffId, notes);
         return ResponseEntity.ok(response);
