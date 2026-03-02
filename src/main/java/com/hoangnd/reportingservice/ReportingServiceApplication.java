@@ -10,7 +10,8 @@ public class ReportingServiceApplication {
 
     public static void main(String[] args) {
 
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));SpringApplication.run(ReportingServiceApplication.class, args);
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+        SpringApplication.run(ReportingServiceApplication.class, args);
     }
 
 }
