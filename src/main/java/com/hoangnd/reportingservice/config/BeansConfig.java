@@ -22,6 +22,7 @@ public class BeansConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(List.of("https://estate.maik.io.vn",
                 "http://localhost:5173"));
+        config.setAllowedOriginPatterns(List.of("*"));
         config.setAllowedHeaders(Arrays.asList(
                         HttpHeaders.ORIGIN,
                         HttpHeaders.CONTENT_TYPE,
